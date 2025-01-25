@@ -26,7 +26,6 @@ while (!quitGame) {
   }
 
   if (!quitGame && validInput) {
-    let computerChoice = getComputerChoice();
-    checkChoices(p1Answer, computerChoice);
+    checkChoices(p1Answer, getComputerChoice());
   }
 }
