@@ -1,43 +1,32 @@
-// Delcare valid game options
 const validChoices = ["rock", "paper", "scissors"];
-
-// While loop termination flag
 let quitGame = false;
 
-// Wrap everything in a while loop to keep the game going.
+// Loop until player chooses to quit.
 while (!quitGame) {
+  let validInput = true;
 
-  // Ask Player 1 for their choice
   let p1Answer = prompt("Player 1, what is your choice? Or 'q' to quit.");
 
+  // Validation
   if (p1Answer) {
     p1Answer = p1Answer.toLowerCase();
     if (p1Answer === "q") {
       quitGame = true;
       console.log("Game Over!");
-    }
-  } else { // player clicked 'cancel'
-    quitGame = true;
-    console.log("Game Over!");
-  }
-
-  if (!quitGame) {
-    let validInput = true;
-
-    // Get computer choice
-    let computerChoice = getComputerChoice();
-
-    // Validate Input
-    if (!validChoices.includes(p1Answer)) {
+    } else if (!validChoices.includes(p1Answer)) {
       validInput = false;
       console.log(
         "Player 1, that's not a valid option! Please use Rock, Paper or Scissors."
       );
     }
+  } else {
+    // player clicked 'cancel'
+    quitGame = true;
+    console.log("Game Over!");
+  }
 
-    // If valid input, call checkChoices to determine winner.
-    if (validInput) {
-      checkChoices(p1Answer, computerChoice);
-    }
+  if (!quitGame && validInput) {
+    let computerChoice = getComputerChoice();
+    checkChoices(p1Answer, computerChoice);
   }
 }
