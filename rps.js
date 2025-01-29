@@ -1,31 +1,36 @@
-const validChoices = ["rock", "paper", "scissors"];
-let quitGame = false;
+const btnRock = document.querySelector(".rock");
+const btnPaper = document.querySelector(".paper");
+const btnScissors = document.querySelector(".scissors");
 
-// Loop until player chooses to quit.
-while (!quitGame) {
-  let validInput = true;
+let playerScore,
+  computerScore = 0;
 
-  let p1Answer = prompt("Player 1, what is your choice? Or 'q' to quit.");
+btnRock.addEventListener("click", () => {
+  p1Answer = "rock";
+});
 
-  // Validation
-  if (p1Answer) {
-    p1Answer = p1Answer.toLowerCase();
-    if (p1Answer === "q") {
-      quitGame = true;
-      console.log("Game Over!");
-    } else if (!validChoices.includes(p1Answer)) {
-      validInput = false;
-      console.log(
-        "Player 1, that's not a valid option! Please use Rock, Paper or Scissors."
-      );
-    }
-  } else {
-    // player clicked 'cancel'
-    quitGame = true;
-    console.log("Game Over!");
-  }
+btnPaper.addEventListener("click", () => {
+  p1Answer = "paper";
+});
 
-  if (!quitGame && validInput) {
-    checkChoices(p1Answer, getComputerChoice());
-  }
-}
+btnScissors.addEventListener("click", () => {
+  p1Answer = "scissors";
+});
+
+// Loop until score reaches 5
+// while (playerScore < 5 && computerScore < 5) {
+
+//   btnRock.addEventListener("click", () => {
+//     p1Answer = 'rock';
+//   });
+
+//   btnPaper.addEventListener("click", () => {
+//     p1Answer = "paper";
+//   });
+
+//   btnScissors.addEventListener("click", () => {
+//     p1Answer = "scissors";
+//   });
+
+//   checkChoices(p1Answer, getComputerChoice());
+// }
