@@ -1,4 +1,8 @@
-// Generate computer choice utilizing math.random()
+const playRound = (p1Answer) => {
+  return checkChoices(p1Answer, getComputerChoice());
+};
+
+// Determine computer choice utilizing math.random()
 function getComputerChoice() {
   let random = Math.random();
   if (random <= 0.33) {
@@ -15,27 +19,23 @@ function getComputerChoice() {
 function checkChoices(answer1, answer2) {
   if (answer1 == "rock") {
     if (answer2 == "scissors") {
-      console.log("Player 1 wins!");
+      return "player";
     } else if (answer2 == "paper") {
-      console.log("Computer wins!");
-    } else {
-      console.log("It's a Tie!");
+      return "computer";
     }
   } else if (answer1 == "scissors") {
     if (answer2 == "paper") {
-      console.log("Player 1 wins!");
+      return "player";
     } else if (answer2 == "rock") {
-      console.log("Computer wins!");
-    } else {
-      console.log("It's a Tie!");
+      return "computer";
     }
   } else if (answer1 == "paper") {
     if (answer2 == "rock") {
-      console.log("Player 1 wins!");
+      return "player";
     } else if (answer2 == "scissors") {
-      console.log("Computer wins!");
-    } else {
-      console.log("It's a Tie!");
+      return "computer";
     }
   }
+  // if no conditions above match, the result is a tie.
+  return "tie";
 }

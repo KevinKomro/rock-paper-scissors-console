@@ -7,6 +7,17 @@ let playerScore,
 
 btnRock.addEventListener("click", () => {
   p1Answer = "rock";
+  let result = playRound(p1Answer);
+  switch (result) {
+    case "player":
+      console.log("Player wins!");
+      break;
+    case "computer":
+      console.log("Computer wins!");
+      break;
+    default: 
+      console.log("It's a Tie!")
+  }
 });
 
 btnPaper.addEventListener("click", () => {
@@ -16,21 +27,3 @@ btnPaper.addEventListener("click", () => {
 btnScissors.addEventListener("click", () => {
   p1Answer = "scissors";
 });
-
-// Loop until score reaches 5
-// while (playerScore < 5 && computerScore < 5) {
-
-//   btnRock.addEventListener("click", () => {
-//     p1Answer = 'rock';
-//   });
-
-//   btnPaper.addEventListener("click", () => {
-//     p1Answer = "paper";
-//   });
-
-//   btnScissors.addEventListener("click", () => {
-//     p1Answer = "scissors";
-//   });
-
-//   checkChoices(p1Answer, getComputerChoice());
-// }
