@@ -1,0 +1,11 @@
+* {
+    text-align: center;
+}
+
+.parentDiv {
+    background-color: khaki;
+}
+
+.resultDiv {
+    padding: 20px;
+}
